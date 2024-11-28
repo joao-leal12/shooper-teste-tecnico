@@ -1,0 +1,14 @@
+.travelOptionsContainer { 
+  display: grid; 
+  grid-template-columns: auto 1fr; 
+}
+
+.optionsDriverSidebarContainer { 
+    border: 1px solid blue; 
+}
+
+.typograph { 
+    font-size: 3rem; 
+    font-weight: 800; 
+    font-family: 'lato';
+}

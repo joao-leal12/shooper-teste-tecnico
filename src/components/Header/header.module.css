@@ -1,0 +1,13 @@
+
+
+.headerContainer { 
+    background-color: var(--blue); 
+    padding-block: 3rem; 
+    padding-inline: 12rem;
+}
+
+
+.headerContainer img {
+     width: 100%; 
+    max-width: 140px; 
+}
