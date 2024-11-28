@@ -1,0 +1,31 @@
+  {
+  "name": "back-end",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "dev": "dotenv -e .env nodemon src/main.ts"
+  },
+  "keywords": [],
+  "author": "joaovictorleal080415@gmail.com<joao-leal12>",
+  "license": "ISC",
+  "description": "Teste técnico shooper",
+  "devDependencies": {
+    "@jest/globals": "^29.7.0",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/jest": "^29.5.14",
+    "dotenv-cli": "^7.4.4",
+    "jest": "^29.7.0",
+    "nodemon": "^3.1.7",
+    "ts-jest": "^29.2.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "axios": "^1.7.7",
+    "cors": "^2.8.5",
+    "express": "^4.21.1",
+    "pg-promise": "^11.10.2"
+  }
+}
