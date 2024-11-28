@@ -1,0 +1,30 @@
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_DB: shooper
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin123   
+    volumes:
+      - ./init/:/docker-entrypoint-initdb.d/
+    ports:
+      - "5432:5432"
+  backend:
+    build: 
+      context: ./back-end
+      dockerfile: Dockerfile
+    container_name: backend-service
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+  frontend:
+    build:
+      context: ./front-end/shooper-driver  
+      dockerfile: Dockerfile
+    container_name: frontend-service
+    ports:
+      - "80:80"
+    depends_on:
+    - backend
