@@ -1,0 +1,7 @@
+.footerContainer{ 
+    background: var(--blue);
+    padding-block: 2rem;
+    padding-inline: 6rem;
+
+    margin-top: 2rem ;
+}
