@@ -1,0 +1,50 @@
+
+* { 
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+
+  font-family: Lato;
+}
+
+
+:root { 
+
+  --primary:#03AA77;
+  --secondary: #2F4D43;
+  --tertiary: #38B189; 
+  --blue: #1E2044; 
+  --green-btn: #07A776; 
+  --green-btn-hover: #08C88E; 
+  --text-color: #060937;
+
+
+  font-size: 62.5%; 
+}
+
+
+.container {
+
+  display: grid; 
+  grid-template-rows: auto 1fr auto; 
+  height: 100vh;  
+
+  
+}
+
+
+button { 
+  outline: none; 
+  background: transparent; 
+
+  background: var(--green-btn);
+  padding: 1rem; 
+  border-radius: 1rem;
+  color: #fff;
+
+  font-size: 2rem;
+}
+
+button:hover { 
+  background: var(--green-btn-hover);
+}

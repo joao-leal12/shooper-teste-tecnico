@@ -1,0 +1,55 @@
+
+.requestTripContainer { 
+
+    max-width: 80rem;
+    width: 100%; 
+
+    margin:0 auto;
+
+    display: grld;
+    place-content:center;
+    place-items: center;
+
+}
+.requestTripContainerForm{ 
+    
+    display: flex;
+    flex-direction: column; 
+   
+    gap:2rem;
+    width: 100%; 
+
+}
+
+
+.requestTripContainerForm > .inputName
+ { 
+   
+    border-radius: .8rem; 
+    outline: 1px solid var(--green-btn); 
+    border: 1px solid var(--green-btn); 
+}
+
+.inputName > legend { 
+    color:red;
+}
+
+.inputName:hover, 
+.inputName:focus, 
+.inputName:active { 
+
+    cursor: pointer;
+    border: 1px solid var(--green-btn); 
+    outline: 1px solid var(--green-btn); 
+
+}
+
+.errorMessage { 
+    color: #d32f2f; 
+    font-size: .900rem; 
+    margin-top: -12px;
+    margin-left: .8rem;
+    font-weight: bold; 
+
+    letter-spacing: .04rem;
+}
