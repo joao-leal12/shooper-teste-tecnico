@@ -12,12 +12,12 @@ Docker Compose
 
 Configuração
 1. Clonar o Repositório
-Faça o clone do repositório do projeto:
+Faça o clone do repositório do projeto: <br/>
 
 Copiar código
-git clone https://github.com/seu-usuario/nome-do-repositorio.git
-cd nome-do-repositorio
-2. Configurar Variáveis de Ambiente <br/>
+git clone https://github.com/seu-usuario/nome-do-repositorio.git <br/>
+cd nome-do-repositorio <br/> 
+2. Configurar Variáveis de Ambiente: <br/>
 Crie os arquivos .env para o frontend e o backend. Use os das chaves de exemplo de cada projeto .env.example:<br/>
 
 3. Subir os Contêineres
