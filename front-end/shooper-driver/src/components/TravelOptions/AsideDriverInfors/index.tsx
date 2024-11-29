@@ -4,20 +4,26 @@ import {Button} from '@mui/material'
 import { boxStyles, boxTypographStyles, buttonStyles, buttonStylesContainer, travelSideDriverContainer, typographSyle } from '../styles-travel-options'
 import { DriversContainer } from '../DriversContainer'
 
-export const AsideDriverInfos = () => {
+interface AsideDriverInforProps { 
+    originName: string; 
+    destinationName: string; 
+
+}
+
+export const AsideDriverInfos = (params: AsideDriverInforProps) => {
   return (
     <Box component="aside" sx={travelSideDriverContainer}>
         <Box sx={boxStyles}>
 
             <Box sx={boxTypographStyles} >
                 <Typography  sx={typographSyle}>
-                    De Rua Dom Avelar Brandão Vilela
+                    {params.originName}
                 </Typography>
             </Box>
 
             <Box sx={boxTypographStyles}>
                 <Typography sx={typographSyle}>
-                  Para Rua 2 de Julho
+                  {params.destinationName}
                 </Typography>
             </Box>
         </Box>

@@ -56,10 +56,8 @@ export class RouteService implements RouteServiceProps {
         if(!customerId) throw new Error()
        
         if(!origin || !destination) throw new HttpError('Os dados Fornecidos no corpo da requisição são inválidos', 400, 'INVALID_DATA')
-
+       
         if(origin === destination ) throw new Error('Os valores de origem e destino não podem ser iguais')
-
-            
         
         const output = await this.calculate(origin, destination); 
         

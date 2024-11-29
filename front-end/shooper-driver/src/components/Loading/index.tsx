@@ -12,15 +12,15 @@ export const Loading: React.FC = () => {
         top: 0,
         left: 0,
         width: '100%',
-        height: '100vh', // Tamanho da tela cheia
-        backgroundColor: 'rgba(255, 255, 255, 0.7)', // Fundo branco semitransparente
-        zIndex: 9999, // Para garantir que fique acima de outros componentes
+        height: '100vh', 
+        backgroundColor: 'rgba(255, 255, 255, 0.7)', 
+        zIndex: 9999, 
       }}
     >
       <CircularProgress
-        size={60} // Tamanho do spinner
+        size={60} 
         sx={{
-          color: '#1E2044', // Cor do spinner
+          color: '#1E2044', 
         }}
       />
     </Box>

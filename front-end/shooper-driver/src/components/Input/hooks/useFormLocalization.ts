@@ -6,7 +6,7 @@ import { client } from '../../../infra/http/axios-client';
 import { sendLocalizationPropsSchema } from '../schemas/apis-schemas';
 import {v4 as uuidv4} from 'uuid'
 import {useNavigate} from 'react-router'
-
+import { useDriverStore } from '../../../Services/store/drivers';
 const schema = yup.object({ 
     
     name: yup.string().required('Nome é Obrigatório'), 
@@ -24,39 +24,46 @@ export const useFormLocalization = () => {
 
     const navigate = useNavigate(); 
 
- 
+    const addDriver = useDriverStore(state => state.addDriver)
     const {control, register, handleSubmit,  formState: {errors}, reset} = useForm<FormData>({
         resolver: yupResolver(schema)
     }); 
 
-    const mutation = useMutation({
-        mutationFn: (formData: SendLocalizationProps) => {
-            return client.post('/ride/estimate', formData)
-        }
-    });
-
+    
     const saveCustomerId = (customerId: string) => { 
 
         sessionStorage.setItem('customerId', JSON.stringify(customerId))
 
     }
 
+    const mutation = useMutation({
+        mutationFn: (formData: SendLocalizationProps) => {
+            return client.post('/ride/estimate', formData).then((data) => {
+                const response = data.data 
+                saveCustomerId(formData.customer_id)
+                addDriver({...response,originName: formData.origin, destinationName: formData.destination})
 
-    const onSubmitField = (data:FormData) => {
+            })
+        }
+    });
+
+
+
+
+    const onSubmitField = async (data:FormData) => {
         const customerId = uuidv4(); 
-         mutation.mutate({ 
+
+    
+       await  mutation.mutateAsync({ 
             customer_id: customerId, 
             origin: data.origin, 
             destination: data.destination
          })
-        
-         reset(); 
-         if(mutation.isSuccess){ 
-             saveCustomerId(customerId)
-             
-             navigate('/travel-options')
-         }
+
+
+        reset()
+    
     }
 
-    return{control, register,handleSubmit, Controller, errors, onSubmitField}
+    return{control, register,handleSubmit, Controller, errors, onSubmitField, mutation, navigate, reset}
 }

@@ -4,7 +4,7 @@ export const travelSideDriverContainer = {
   display: 'flex', 
   flexDirection: 'column', 
   justifyContent: 'space-between',
-
+  maxWidth: '380px', 
   paddinBottom: '1rem'
  
 

@@ -55,6 +55,7 @@ app.post('/ride/estimate',async  (req: Request, res: Response) => {
 
         const output = await routeService.getCalculatedRoute(req.body.customer_id, req.body.origin, req.body.destination) 
 
+        console.log({output})
         const outputDriver= await driverService.getDrivers(output.route.distance)
 
             const optionsGenerated:DriversProps[] = []
@@ -84,9 +85,11 @@ app.post('/ride/estimate',async  (req: Request, res: Response) => {
             res.json({...outputViewDTO, routeResponse: output.routeResponse}); 
     }catch(e) { 
 
-       if(e instanceof Error) { 
+       if(e instanceof HttpError) { 
             console.log(e.message)
        }
+
+       console.error(e)
         
         res.status(400).json({error_code: 'INVALID_DATA', error_description: 'Os dados Fornecidos no corpo da requisição são inválidos' })
     }

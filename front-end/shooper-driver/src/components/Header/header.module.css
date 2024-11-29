@@ -4,6 +4,9 @@
     background-color: var(--blue); 
     padding-block: 3rem; 
     padding-inline: 12rem;
+
+    display: flex;
+    align-items: center;
 }
 
 
