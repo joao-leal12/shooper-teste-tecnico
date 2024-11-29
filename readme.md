@@ -1,8 +1,10 @@
 Aplicação Shopper Drive
 Este projeto é uma aplicação de transporte compartilhado que simula um sistema semelhante ao Uber. Ele está configurado para rodar em contêineres Docker, permitindo que você configure o ambiente rapidamente.
 
-Instruções para Uso
-Requisitos
+Instruções para Uso: 
+
+Requisitos: 
+
 Antes de iniciar, certifique-se de que você possui os seguintes itens instalados em sua máquina:
 
 Docker
