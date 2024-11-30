@@ -179,4 +179,4 @@ process.on('SIGINT', async () => {
     process.exit(0)
 })
 
-app.listen(8080, '0.0.0.0',() => console.log('Server running in port' + 8080))
+app.listen(8080,() => console.log('Server running in port' + 8080))
