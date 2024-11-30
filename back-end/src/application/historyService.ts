@@ -27,6 +27,7 @@ export class HistoryService {
 
         if(!outputDriver.valid && outputDriver.status === 404) throw new HttpError('Quilometragem inválida para o motorista', 406, 'INVALID_DISTANCE') 
         
+            
 
         await this.historyRepositoryDatabase.save(input); 
     }

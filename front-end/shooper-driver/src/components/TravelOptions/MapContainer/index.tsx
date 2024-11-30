@@ -7,16 +7,16 @@ import { useDriverStore } from '../../../Services/store/drivers';
 
 export const MapContainer = () => {
   const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY
-  const { drivers } = useDriverStore()
+  const { drivers } = useDriverStore();
 
-  if(!drivers) return 
+  if(!drivers.originName || !drivers.destinationName) return 
   
   return (
     <APIProvider apiKey={apiKey}>
         <Map
           style={{width: '100%', height: '100%'}}
           defaultZoom={15}
-          defaultCenter={{lat: +drivers.origin.latitude,lng: +drivers.destination.longitude }}
+          defaultCenter={{lat: +drivers.origin.latitude,lng: +drivers.origin.longitude }}
           mapId="438a01acf45eb9dd"
           gestureHandling={'greedy'}
           disableDefaultUI={true}

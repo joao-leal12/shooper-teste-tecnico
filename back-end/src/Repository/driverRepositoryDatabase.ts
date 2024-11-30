@@ -42,11 +42,13 @@ export class DriverRepositoryDatabase implements DriverRepository {
 
         if(!distanceKm) return undefined 
       
-
+    
             const outputDriver = await connection.query('select * from drivers dr where dr.id = $1 and dr.min_km <= $2', [driverId, distanceKm])    
             
             
-            const rateValue = outputDriver.rate * distanceKm
+            if(!outputDriver.length) return undefined
+
+            const rateValue = outputDriver[0].rate * distanceKm
 
 
             return Driver.create(outputDriver[0].id, outputDriver[0].name,outputDriver[0].description, outputDriver[0].car, outputDriver[0].feedback, outputDriver[0].rating, rateValue, outputDriver[0].min_km)

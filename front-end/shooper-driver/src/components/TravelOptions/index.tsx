@@ -4,14 +4,20 @@ import { AsideDriverInfos } from './AsideDriverInfors'
 import { MapContainer } from './MapContainer'
 
 import { useConfirmRide } from './hooks/useConfirmRide'
-import { Loading } from '../Loading'
+import { useEffect } from 'react'
+
 
 
 export const TravelOptions = () => {
 
-  const {drivers} = useConfirmRide(); 
+  const {drivers,navigate} = useConfirmRide(); 
 
-  if(!drivers.options || !drivers.options.length) return <Loading/>
+  useEffect(() => { 
+    if(!drivers.options || !drivers.options.length) navigate('/')
+  }, [drivers.options, navigate])
+
+
+  
   return (
     <section className={styles.travelOptionsContainer}>
       <AsideDriverInfos originName={drivers.originName} destinationName={drivers.destinationName}/>

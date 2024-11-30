@@ -44,6 +44,9 @@ export const useFormLocalization = () => {
                 addDriver({...response,originName: formData.origin, destinationName: formData.destination})
 
             })
+        },
+        onSuccess: () => { 
+            navigate('/travel-options')
         }
     });
 

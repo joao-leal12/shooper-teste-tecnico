@@ -11,9 +11,11 @@ export class HistoryRepositoryDatabase implements HistoryRepository {
     }
     async save(input: inputDTO): Promise<void> {
 
+      
+
       await connection.query(
-        `insert into history (customer_id,origin,destination,distance,     duration,driver_id,fare,created_at) 
-        values ($1,$2,$3,$4,$5,$6,$7,$8)`, [input.customerId, input.origin, input.destination, input.distance, input.duration, input.driver.id, input.value, new Date()])
+        `insert into history (customer_id,origin,destination,distance,duration,driver_id,fare,created_at) 
+        values ($1,$2,$3,$4,$5,$6,$7,$8)`, [input.customerId, input.origin, input.destination, input.distance, input.duration, input.driver.id,input.value, new Date()])
 
     
     }
@@ -55,7 +57,10 @@ export class HistoryRepositoryDatabase implements HistoryRepository {
         }
 
 
-        const output = await connection.query('select * from history ht where ht.customer_id = $1', [customerId])
+        const output = await connection.query(`
+          select ht.id,origin, destination, distance, duration, driver_id, fare, created_at, name from history ht, 
+          drivers d where d.id = ht.driver_id and  ht.customer_id = $1; 
+          `, [customerId])
         
         for(const record of output){ 
 
@@ -63,13 +68,13 @@ export class HistoryRepositoryDatabase implements HistoryRepository {
           const rides = { 
             id: record.id, 
             origin: record.origin, 
-            date: record.created_at, 
+            date: record.created_at,  
             destination: record.destination,
             distance: record.distance, 
             duration :record.duration, 
             driver: { 
               id: record.driver_id, 
-              name: record.driver_name
+              name: record.name
             }, 
             value: record.fare
           }

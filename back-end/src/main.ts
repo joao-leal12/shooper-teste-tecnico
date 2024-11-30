@@ -55,7 +55,7 @@ app.post('/ride/estimate',async  (req: Request, res: Response) => {
 
         const output = await routeService.getCalculatedRoute(req.body.customer_id, req.body.origin, req.body.destination) 
 
-        console.log({output})
+       
         const outputDriver= await driverService.getDrivers(output.route.distance)
 
             const optionsGenerated:DriversProps[] = []

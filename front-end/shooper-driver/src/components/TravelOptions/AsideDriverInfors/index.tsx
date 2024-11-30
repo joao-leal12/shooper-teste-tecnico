@@ -3,6 +3,7 @@ import Typography from '@mui/material/Typography'
 import {Button} from '@mui/material'
 import { boxStyles, boxTypographStyles, buttonStyles, buttonStylesContainer, travelSideDriverContainer, typographSyle } from '../styles-travel-options'
 import { DriversContainer } from '../DriversContainer'
+import { useConfirmRide } from '../hooks/useConfirmRide'
 
 interface AsideDriverInforProps { 
     originName: string; 
@@ -11,6 +12,10 @@ interface AsideDriverInforProps {
 }
 
 export const AsideDriverInfos = (params: AsideDriverInforProps) => {
+
+const {confirmRide} = useConfirmRide()
+
+
   return (
     <Box component="aside" sx={travelSideDriverContainer}>
         <Box sx={boxStyles}>
@@ -32,7 +37,7 @@ export const AsideDriverInfos = (params: AsideDriverInforProps) => {
 
         <Box sx={buttonStylesContainer}>
 
-            <Button variant='outlined' sx={buttonStyles}>
+            <Button variant='outlined' sx={buttonStyles} onClick={confirmRide}>
                 Confirmar Viagem
             </Button>
 
@@ -40,4 +45,4 @@ export const AsideDriverInfos = (params: AsideDriverInforProps) => {
 
       </Box>
   )
-}
+}   

@@ -12,8 +12,6 @@ export class GoogleMapsAdapter implements ExternalServices {
         this.baseUrl = baseUrl
     }
     async fetchData(originValue: string, destinationValue: string): Promise<any> {
-                
-
         
         const output = await axios.post(this.baseUrl, 
             {origin: {
@@ -23,7 +21,7 @@ export class GoogleMapsAdapter implements ExternalServices {
             }}, 
             {params: {key: this.apiKey} ,headers: {'X-Goog-FieldMask': 'routes.legs.startLocation,routes.legs.endLocation,routes.duration,routes.distanceMeters'}})
 
-
+            
         return output.data
     }
 

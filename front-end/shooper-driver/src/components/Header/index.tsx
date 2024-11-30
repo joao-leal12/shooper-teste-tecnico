@@ -36,11 +36,6 @@ export const Header = () => {
         whiteSpace: 'nowrap'
       }}>
         <ListItem sx={listItemStyles}> 
-            <a onClick={(e)=> goTo(e, '/travel-options')}>
-                Opções de Viagem
-            </a>
-        </ListItem>
-        <ListItem sx={listItemStyles}> 
             <a onClick={(e)=> goTo(e, '/travel-history')}>
                Histórico de Viagens 
             </a>

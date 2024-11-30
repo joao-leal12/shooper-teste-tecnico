@@ -1,5 +1,5 @@
 import {create} from 'zustand'
-
+import {combine} from 'zustand/middleware'
 interface GeoProps { 
     latitude: string;
     longitude:string 
@@ -33,12 +33,29 @@ export interface DriversProps {
 
 
 
-interface Drivers { 
-    drivers: DriversProps
-    addDriver: (props: DriversProps) => void }   
+ 
+
+export interface HistoryProps extends Omit<DriversProps, 'origin' | 'destination' |  'options'> { 
+    customerId: string; 
+    driver:{ 
+        id: number
+        name: string 
+    }, 
+    value: number 
+}
 
 
-export const useDriverStore = create<Drivers>((set) => ({
-   drivers: {} as DriversProps,
-   addDriver: (props: DriversProps) => set(() => ({drivers:{...props}})) 
-})); 
+export const useDriverStore = create(
+    combine({ 
+        drivers: {} as DriversProps,
+        historyProps: {} as HistoryProps
+    }, 
+    (set ) => { 
+        return { 
+            addDriver: (nextProps: DriversProps) => set(() => 
+                ({drivers: {...nextProps}})), 
+            addHistory: (nextProps: HistoryProps) => set(() => ({historyProps: {...nextProps}}))
+        }
+    }
+)
+)

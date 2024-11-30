@@ -34,6 +34,8 @@ export class RouteService implements RouteServiceProps {
             }
         }as OriginDestinationType
 
+            if(!routeParams.routes) return {} as Route
+        
         for(const route of routeParams.routes){ 
             for(const leg of route.legs){ 
                localizations.origin.latitude = leg.startLocation.latLng.latitude

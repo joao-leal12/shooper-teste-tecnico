@@ -41,16 +41,10 @@ export const RequestTrip = () => {
 
   
   
-  const {control, handleSubmit, register, Controller, errors, onSubmitField, mutation, navigate} = useFormLocalization();
+  const {control, handleSubmit, register, Controller, errors, onSubmitField} = useFormLocalization();
 
   const {setInputValue, optionsOrigin, optionsDestination,  inputValue, destinationValue, setDestinationValue} = useGetAutoCompletePlaces(); 
   
-   if(mutation.isSuccess) {  
-     navigate('/travel-options')
-   }
-
- 
-
 
   return (
     <section className={styles.requestTripContainer}>

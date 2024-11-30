@@ -3,7 +3,7 @@ import { Box, Typography, Button } from '@mui/material';
 
 interface ErrorProps {
   message: string;
-  onRetry?: () => void; // Função opcional para tentar novamente
+  onRetry?: () => void; 
 }
 
 export const Error: React.FC<ErrorProps> = ({ message, onRetry }) => {
@@ -17,9 +17,9 @@ export const Error: React.FC<ErrorProps> = ({ message, onRetry }) => {
         top: 0,
         left: 0,
         width: '100%',
-        height: '100vh', // Tamanho da tela cheia
-        backgroundColor: 'rgba(255, 255, 255, 0.7)', // Fundo branco semitransparente
-        zIndex: 9999, // Para garantir que fique acima de outros componentes
+        height: '100vh', 
+        backgroundColor: 'rgba(255, 255, 255, 0.7)', 
+        zIndex: 9999,
         textAlign: 'center',
       }}
     >
